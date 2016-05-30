@@ -92,5 +92,15 @@
       </footer>
 
         <script src="js/main.js"></script>
+        <!-- initiate the service worker -->
+        <script>
+          if( 'serviceWorker' in navigator ) {
+            navigator.serviceWorker
+             .register( '/service-worker.js' )
+             .catch(function( err ) {
+               console.log( 'ServiceWorker registration failed: ', err );
+             });
+           }
+        </script>
     </body>
 </html>
