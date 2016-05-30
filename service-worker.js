@@ -1,7 +1,6 @@
-var cacheVersion = 'v1.1';
+var cacheVersion = 'v1.3';
 
 filesToCache = [
-  '/',
   'index.html',
   'about.html',
   'css/main.css',
@@ -9,20 +8,19 @@ filesToCache = [
   'img/gear.png'
 ]
 
-self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open(cacheVersion)
-      .then( function( cache ) {
-        return cache.addAll( filesToCache );
-    })
-  );
+self.addEventListener('install', function (e) {
+  e.waitUntil(caches.open(cacheVersion)
+    .then(function (cache) {
+      return cache.addAll(filesToCache)
+        .then(function () {
+          return self.skipWaiting();
+        });
+      }));
 });
 
-self.addEventListener( 'fetch', function( event ) {
-  event.respondWith(
-    caches.match( event.request )
-      .then( function( response ) {
-        return response || fetch( event.request );
-    })
-  );
+self.addEventListener('fetch', function (event) {
+  event.respondWith(caches.match(event.request)
+    .then(function (res) {
+      return res || fetch(event.request);
+  }));
 });
