@@ -1,4 +1,4 @@
-var cacheVersion = 'v1';
+var cacheVersion = 'v1.1';
 
 filesToCache = [
   '/',
