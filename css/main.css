@@ -113,11 +113,6 @@ a:visited {
   font-weight: 700;
 }
 
-a:focus {
-  border: 1px dotted #111;
-}
-
-
 /*
   Header Styles
   =========================================
