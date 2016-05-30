@@ -1,11 +1,11 @@
 var cacheVersion = 'v1';
 
 filesToCache = [
-  'index.html',
-  'about.html',
-  'css/main.css',
-  'js/main.js',
-  'img/gear.png'
+  './index.html',
+  './about.html',
+  './css/main.css',
+  './js/main.js',
+  './img/gear.png'
 ]
 
 self.addEventListener('install', function(e) {
